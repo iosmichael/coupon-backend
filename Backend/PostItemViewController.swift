@@ -334,6 +334,7 @@ class DetailController:UIViewController{
         textView = UITextView.init(frame:CGRect.init(x: leftMargin, y: topMargin, width: contentView.width-2*leftMargin, height: contentView.height-2*topMargin))
         textView?.layer.borderWidth = 0
         textView?.backgroundColor = UIColor.white
+        textView?.font = UIFont.init(name: "HelveticaNeue", size: 18)
         self.view.backgroundColor = UIColor.groupTableViewBackground
         self.view.addSubview(textView!)
         setupNav()

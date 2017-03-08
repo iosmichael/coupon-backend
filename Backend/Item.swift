@@ -19,7 +19,6 @@ class Item: NSObject {
     var thumbnail:String!
     var thumbnailImg: UIImage!
     var imagesURL = [String]()
-    var sell = true
     
     var fields = [(String,String)]()
     //below for post
@@ -87,7 +86,7 @@ class Item: NSObject {
         //#warning - Need dates! here!
         let currentDate: Date = Date()
         let dateString: String = currentDate.convertDateToString()
-        var posts = ["name":name!, "detail":detail!, "date":dateString, "sell":sell] as [String : Any]
+        var posts = ["name":name!, "detail":detail!, "date":dateString] as [String : Any]
         for (field, input) in fields{
             posts[field] = input
             print("\(field):\(input)")
@@ -101,14 +100,20 @@ class Item: NSObject {
     }
     
     
-    func deleteItem(itemID:String){
-        let itemsNode = ref?.child("items").child(itemID)
+    func deleteStore(storeId:String){
+        let itemsNode = ref?.child("stores").child(storeId)
         itemsNode?.removeValue()
-        
         for tag in tagList {
             //need query here!
-            ref?.child("tags").child(tag).child(itemID).removeValue()
+            ref?.child("tags").child(tag).child(storeId).removeValue()
         }
+        //delete all the coupons
+        let couponNode = ref?.child("coupons").queryOrdered(byChild: "storeId").queryEqual(toValue: storeId)
+        couponNode?.observe(.value, with: { (snapshot) in
+            for child:FIRDataSnapshot in snapshot.children.allObjects as! [FIRDataSnapshot]{
+                self.ref?.child("coupons").child(child.key).removeValue()
+            }
+        })
     }
     
     

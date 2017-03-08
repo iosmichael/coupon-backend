@@ -9,15 +9,14 @@
 import UIKit
 
 class ItemTableViewController: UITableViewController {
+    
+    var data:[Coupon] = []
+    let initialQueryLimits = 200
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.tableView.register(UINib.init(nibName: "ItemTableViewCell", bundle: nil), forCellReuseIdentifier: "coupon")
+        setupData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,68 +27,57 @@ class ItemTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return data.count
     }
 
-    /*
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "coupon", for: indexPath) as! ItemTableViewCell
+        let coupon = data[indexPath.row]
+        cell.setCoupon(coupon: coupon)
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return ItemTableViewCell.getHeight()
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let coupon = data[indexPath.row]
+        let couponCell: ItemTableViewCell = cell as! ItemTableViewCell
+        if coupon.store?.thumbnail != nil {
+            DispatchQueue.global().async {
+                if let url = NSURL(string: (coupon.store?.thumbnail)!) {
+                    if let data = NSData(contentsOf: url as URL) {
+                        let thumbnailImg = UIImage.init(data: data as Data!)
+                        coupon.store?.thumbnailImg = thumbnailImg
+                        DispatchQueue.main.async {
+                            couponCell.setThumbnailImage(image: thumbnailImg!)
+                        }
+                    }
+                }
+            }
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction  = UITableViewRowAction(style: .default, title: "Delete") { (rowAction, indexPath) in
+            let coupon = self.data[indexPath.row]
+            coupon.deleteCoupon(couponId: coupon.couponId)
+        }
+        deleteAction.backgroundColor = UIColor.red
+        return [deleteAction]
     }
-    */
 
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    func setupData(){
+        let manager = Manager()
+        manager.queryNewCoupons(limit: initialQueryLimits).observe(.value, with: { (snapshot) in
+            self.data = manager.getCoupons(snapshot: snapshot)
+            self.tableView.reloadData()
+        })
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

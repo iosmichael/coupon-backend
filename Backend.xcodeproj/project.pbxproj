@@ -11,6 +11,7 @@
 		5DD6067FEE1F1C34E7597E1B /* Pods_Backend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96FDB0B025E371BA5D96B4C8 /* Pods_Backend.framework */; };
 		844D3E78CE94E19F69CEBB5F /* Pods_BackendUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D2EF154F125A5FD4FD66AA6 /* Pods_BackendUITests.framework */; };
 		9E3C18171E6F9D8B00006CF3 /* icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E3C18161E6F9D8B00006CF3 /* icons.xcassets */; };
+		9E3C18191E6FC34400006CF3 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3C18181E6FC34400006CF3 /* Manager.swift */; };
 		9EC52D781E6E961200DD2664 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC52D771E6E961200DD2664 /* AppDelegate.swift */; };
 		9EC52D7F1E6E961200DD2664 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EC52D7D1E6E961200DD2664 /* Main.storyboard */; };
 		9EC52D811E6E961200DD2664 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EC52D801E6E961200DD2664 /* Assets.xcassets */; };
@@ -60,6 +61,7 @@
 		8D2EF154F125A5FD4FD66AA6 /* Pods_BackendUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BackendUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96FDB0B025E371BA5D96B4C8 /* Pods_Backend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Backend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E3C18161E6F9D8B00006CF3 /* icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = icons.xcassets; sourceTree = "<group>"; };
+		9E3C18181E6FC34400006CF3 /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 		9EC52D741E6E961200DD2664 /* Backend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Backend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EC52D771E6E961200DD2664 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EC52D7E1E6E961200DD2664 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 			children = (
 				9EC52DAD1E6E98D900DD2664 /* Item.swift */,
 				9EC52DCC1E6F892100DD2664 /* Coupon.swift */,
+				9E3C18181E6FC34400006CF3 /* Manager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -314,7 +317,7 @@
 				TargetAttributes = {
 					9EC52D731E6E961200DD2664 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = B28P9MRX7G;
+						DevelopmentTeam = 86YAS65GYB;
 						ProvisioningStyle = Automatic;
 					};
 					9EC52D891E6E961200DD2664 = {
@@ -537,6 +540,7 @@
 				9EC52DAA1E6E983400DD2664 /* PostItemViewController.swift in Sources */,
 				9EC52DBD1E6F3E2200DD2664 /* ItemTableViewCell.swift in Sources */,
 				9EC52DA81E6E981E00DD2664 /* CustomTableViewCell.swift in Sources */,
+				9E3C18191E6FC34400006CF3 /* Manager.swift in Sources */,
 				9EC52DAE1E6E98D900DD2664 /* Item.swift in Sources */,
 				9EC52DB21E6E99B600DD2664 /* ImagesTableViewCell.swift in Sources */,
 			);
@@ -689,8 +693,10 @@
 			baseConfigurationReference = BA88FA5AE75575D63D961F2B /* Pods-Backend.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = B28P9MRX7G;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 86YAS65GYB;
 				INFOPLIST_FILE = Backend/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xupeng.coupon.Backend;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -703,8 +709,10 @@
 			baseConfigurationReference = 1D980C44970DD47BB83F3B7D /* Pods-Backend.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = B28P9MRX7G;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 86YAS65GYB;
 				INFOPLIST_FILE = Backend/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xupeng.coupon.Backend;
 				PRODUCT_NAME = "$(TARGET_NAME)";

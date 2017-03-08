@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="72" id="KGk-i7-Jjw" customClass="ItemTableViewCell" customModule="CouponApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="355" height="72"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="355" height="71.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="amazon" translatesAutoresizingMaskIntoConstraints="NO" id="6pn-Cy-gfZ">
+                        <rect key="frame" x="8" y="8.5" width="55" height="55"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="55" id="69k-eY-iMw"/>
+                            <constraint firstAttribute="height" constant="55" id="JfG-az-jqY"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amazon" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nBM-UK-nQL">
+                        <rect key="frame" x="71" y="8.5" width="276" height="18"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deal of the Day: Up to 85% Off on Deals Every Hour" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flB-CP-gMi">
+                        <rect key="frame" x="71" y="29.5" width="276" height="36"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="nBM-UK-nQL" firstAttribute="top" secondItem="6pn-Cy-gfZ" secondAttribute="top" id="0h6-dj-7bg"/>
+                    <constraint firstItem="nBM-UK-nQL" firstAttribute="leading" secondItem="6pn-Cy-gfZ" secondAttribute="trailing" constant="8" id="LJR-MP-GCU"/>
+                    <constraint firstItem="flB-CP-gMi" firstAttribute="top" secondItem="nBM-UK-nQL" secondAttribute="bottom" constant="3" id="Mmn-qM-5aW"/>
+                    <constraint firstItem="6pn-Cy-gfZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="ZZJ-9z-2es"/>
+                    <constraint firstAttribute="trailing" secondItem="nBM-UK-nQL" secondAttribute="trailing" constant="8" id="Zd9-Lx-tAQ"/>
+                    <constraint firstItem="flB-CP-gMi" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="kGP-Ea-SQm"/>
+                    <constraint firstItem="6pn-Cy-gfZ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="nPl-6L-L1w"/>
+                    <constraint firstItem="flB-CP-gMi" firstAttribute="leading" secondItem="6pn-Cy-gfZ" secondAttribute="trailing" constant="8" id="per-xq-Ije"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="63.5" y="68"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="amazon" width="55" height="54"/>
+    </resources>
+</document>

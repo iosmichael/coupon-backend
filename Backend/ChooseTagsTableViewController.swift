@@ -11,13 +11,14 @@ import UIKit
 class ChooseTagsTableViewController: UITableViewController , SelectTagCellProtocol{
     
     var selectedTagList = [String]()
-    let tagList = ["Homemade","Restuarant","Grocery","Shopping","Clothing"]
+    var tagList:[String] = []
     weak var parentC: PostItemViewController?
     let selectTagCellIdentifier = "SelectTagCell"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        setupCategories()
         setupNav()
     }
 
@@ -91,6 +92,13 @@ class ChooseTagsTableViewController: UITableViewController , SelectTagCellProtoc
         self.navigationController?.popViewController(animated: true)
     }
 
+    func setupCategories(){
+        let category = Category()
+        category.getCategories { (categories) in
+            self.tagList = categories
+            self.tableView.reloadData()
+        }
+    }
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

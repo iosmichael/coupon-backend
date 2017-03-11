@@ -11,7 +11,7 @@ import Firebase
 
 class StoreTableViewController: UITableViewController {
     
-    var data:[Item] = []
+    var data:[Store] = []
     let initialQueryLimits = 200
 
     override func viewDidLoad() {

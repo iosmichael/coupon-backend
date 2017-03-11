@@ -21,7 +21,7 @@
 		9EC52DA81E6E981E00DD2664 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC52DA71E6E981E00DD2664 /* CustomTableViewCell.swift */; };
 		9EC52DAA1E6E983400DD2664 /* PostItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC52DA91E6E983400DD2664 /* PostItemViewController.swift */; };
 		9EC52DAC1E6E986A00DD2664 /* icon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EC52DAB1E6E986A00DD2664 /* icon.xcassets */; };
-		9EC52DAE1E6E98D900DD2664 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC52DAD1E6E98D900DD2664 /* Item.swift */; };
+		9EC52DAE1E6E98D900DD2664 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC52DAD1E6E98D900DD2664 /* Store.swift */; };
 		9EC52DB21E6E99B600DD2664 /* ImagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC52DB11E6E99B600DD2664 /* ImagesTableViewCell.swift */; };
 		9EC52DB41E6E99FC00DD2664 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9EC52DB31E6E99FC00DD2664 /* GoogleService-Info.plist */; };
 		9EC52DB61E6F3BE100DD2664 /* ChooseTagsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC52DB51E6F3BE100DD2664 /* ChooseTagsTableViewController.swift */; };
@@ -34,6 +34,7 @@
 		9EC52DC41E6F3E9600DD2664 /* StoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC52DC31E6F3E9600DD2664 /* StoreTableViewController.swift */; };
 		9EC52DCB1E6F3EF400DD2664 /* PostCouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC52DCA1E6F3EF400DD2664 /* PostCouponViewController.swift */; };
 		9EC52DCD1E6F892100DD2664 /* Coupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC52DCC1E6F892100DD2664 /* Coupon.swift */; };
+		9EF8F2D51E739709001F8565 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF8F2D41E739709001F8565 /* Category.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +78,7 @@
 		9EC52DA71E6E981E00DD2664 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		9EC52DA91E6E983400DD2664 /* PostItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostItemViewController.swift; sourceTree = "<group>"; };
 		9EC52DAB1E6E986A00DD2664 /* icon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = icon.xcassets; sourceTree = "<group>"; };
-		9EC52DAD1E6E98D900DD2664 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		9EC52DAD1E6E98D900DD2664 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		9EC52DB11E6E99B600DD2664 /* ImagesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesTableViewCell.swift; sourceTree = "<group>"; };
 		9EC52DB31E6E99FC00DD2664 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9EC52DB51E6F3BE100DD2664 /* ChooseTagsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseTagsTableViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +91,7 @@
 		9EC52DC31E6F3E9600DD2664 /* StoreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreTableViewController.swift; sourceTree = "<group>"; };
 		9EC52DCA1E6F3EF400DD2664 /* PostCouponViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCouponViewController.swift; sourceTree = "<group>"; };
 		9EC52DCC1E6F892100DD2664 /* Coupon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coupon.swift; sourceTree = "<group>"; };
+		9EF8F2D41E739709001F8565 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		BA88FA5AE75575D63D961F2B /* Pods-Backend.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Backend.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Backend/Pods-Backend.debug.xcconfig"; sourceTree = "<group>"; };
 		EC8B6C612B48FE424A201DBE /* Pods-BackendUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackendUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BackendUITests/Pods-BackendUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FF0D7A214DE3162F7E180073 /* Pods_BackendTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BackendTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,9 +213,10 @@
 		9EC52DB01E6E998900DD2664 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9EC52DAD1E6E98D900DD2664 /* Item.swift */,
+				9EC52DAD1E6E98D900DD2664 /* Store.swift */,
 				9EC52DCC1E6F892100DD2664 /* Coupon.swift */,
 				9E3C18181E6FC34400006CF3 /* Manager.swift */,
+				9EF8F2D41E739709001F8565 /* Category.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -540,8 +543,9 @@
 				9EC52DAA1E6E983400DD2664 /* PostItemViewController.swift in Sources */,
 				9EC52DBD1E6F3E2200DD2664 /* ItemTableViewCell.swift in Sources */,
 				9EC52DA81E6E981E00DD2664 /* CustomTableViewCell.swift in Sources */,
+				9EF8F2D51E739709001F8565 /* Category.swift in Sources */,
 				9E3C18191E6FC34400006CF3 /* Manager.swift in Sources */,
-				9EC52DAE1E6E98D900DD2664 /* Item.swift in Sources */,
+				9EC52DAE1E6E98D900DD2664 /* Store.swift in Sources */,
 				9EC52DB21E6E99B600DD2664 /* ImagesTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

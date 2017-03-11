@@ -35,10 +35,10 @@ class Manager: NSObject {
         return (couponRef?.queryLimited(toLast: UInt(limit)).queryOrdered(byChild: "name").queryStarting(atValue: query))!
     }
     
-    public func getStores(snapshot:FIRDataSnapshot)->[Item]{
-        var stores = [Item]()
+    public func getStores(snapshot:FIRDataSnapshot)->[Store]{
+        var stores = [Store]()
         for child:FIRDataSnapshot in snapshot.children.allObjects as! [FIRDataSnapshot]{
-            let store = Item()
+            let store = Store()
             store.itemId = child.key
             print("snapshot --------> \(snapshot)")
             print("child --------> \(child)")
@@ -55,13 +55,23 @@ class Manager: NSObject {
                     break
                 case "images":
                     for url in elem.value as! [String:String] {
-                        store.imagesURL.insert(url.value, at: 0)
+                        store.imagesURL.append(url.value)
                     }
                     break
                 case  "date":
                     store.date = elem.value as! String!
                     break
-                case "tags":
+                case "category":
+                    store.category = elem.value as! String!
+                    break
+                case "latitude":
+                    store.latitude = elem.value as! Float!
+                    break
+                case "longtitude":
+                    store.longtitude = elem.value as! Float!
+                    break
+                case "website":
+                    store.website = elem.value as! String!
                     break
                 default:
                     break
@@ -76,7 +86,7 @@ class Manager: NSObject {
         var items = [Coupon]()
         for child:FIRDataSnapshot in snapshot.children.allObjects as! [FIRDataSnapshot]{
             let item = Coupon()
-            let store = Item()
+            let store = Store()
             item.couponId = child.key
             print("snapshot --------> \(snapshot)")
             print("child --------> \(child)")

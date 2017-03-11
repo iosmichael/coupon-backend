@@ -27,7 +27,7 @@ class StoreTableViewCell: UITableViewCell {
     }
     
 
-    func setStore(store:Item){
+    func setStore(store:Store){
         self.storeTitle.text = store.name
         self.category.text = "Category"
         if store.thumbnailImg == nil{

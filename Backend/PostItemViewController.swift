@@ -11,10 +11,10 @@ import ImagePicker
 import Lightbox
 
 
-class PostItemViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,CustomCellProtocol,UICollectionViewDataSource,UICollectionViewDelegate,ImagePickerDelegate{
+class PostItemViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UICollectionViewDataSource,UICollectionViewDelegate,ImagePickerDelegate{
 
     let imageCollectionIdentifier = "images"
-    let imageLimits = 9
+    let imageLimits = 10
     let imageCollectionCellHeight:CGFloat = 100
     let customListCellHeight:CGFloat = 44
     
@@ -23,8 +23,11 @@ class PostItemViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     var tags = [String]()
     var images = [UIImage]()
-    var fields = [(String,String)]()
     var itemTitle: UITextField?
+    var latitude:UITextField?
+    var longitude:UITextField?
+    var website:UITextField?
+    
     var detail = ""
     
     var request = true
@@ -38,7 +41,9 @@ class PostItemViewController: UIViewController,UITableViewDelegate,UITableViewDa
     var list = [(cellType.LI,"Title","e.g. Store Name"),
                 (cellType.LL,"Detail","(Required)"),
                 (cellType.LL,"Categories","(Required)"),
-                (cellType.CII,"Add Tag","Information ")]
+                (cellType.LI,"Latitude","e.g. 40.3211"),
+                (cellType.LI,"Longitude","e.g. 203.001"),
+                (cellType.LI,"Website","e.g. amazon.com")]
     
     @IBOutlet weak var tableview: UITableView!
 
@@ -95,12 +100,16 @@ class PostItemViewController: UIViewController,UITableViewDelegate,UITableViewDa
             return cell
         }else{
             let cell:CustomTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ListCell", for: indexPath) as! CustomTableViewCell
-            cell.delegate = self
             let (type,L1,L2) = list[indexPath.row]
             fill(cell: cell,type: type,L1: L1,L2: L2)
-            
             if indexPath.row == 0{
                 itemTitle = cell.rightInput
+            }else if indexPath.row == 3{
+                latitude = cell.rightInput
+            }else if indexPath.row == 4{
+                longitude = cell.rightInput
+            }else if indexPath.row == 5{
+                website = cell.rightInput
             }
             return cell
         }
@@ -190,9 +199,10 @@ class PostItemViewController: UIViewController,UITableViewDelegate,UITableViewDa
         let valid:Bool = submitValidator()
         if valid {
             print(valid)
-            let item = Item()
+            let store = Store()
             images.removeLast()
-            item.postData(name: (itemTitle?.text)!, detail: detail, tags: tags, images: images, fields: fields)
+            store.postData(name: (itemTitle?.text)!, detail: detail, tags: tags, images: images,
+                           latitude: (self.latitude?.text)!, longitude:(self.longitude?.text)!, website:(self.website?.text)!)
             navigationController?.popViewController(animated: true)
         }else{
             print("didnt pass")
@@ -212,6 +222,15 @@ class PostItemViewController: UIViewController,UITableViewDelegate,UITableViewDa
         if (detail.isEmpty){
            messages.insert("Detail field cannot be empty", at: messages.count)
         }
+        if (latitude?.text?.isEmpty)!{
+            messages.insert("Title cannot be empty", at: messages.count)
+        }
+        if (longitude?.text?.isEmpty)!{
+            messages.insert("Title cannot be empty", at: messages.count)
+        }
+        if (website?.text?.isEmpty)!{
+            messages.insert("Title cannot be empty", at: messages.count)
+        }
         if request{
             if (tags.count == 0){
                 messages.insert("At least one tag is required", at: messages.count)
@@ -221,26 +240,14 @@ class PostItemViewController: UIViewController,UITableViewDelegate,UITableViewDa
         return messages.count == 0
     }
     
-    func addBtn(label:String, input:String){
-        //add new field
-        print("add item \(label) : \(input) ")
-        list.insert((cellType.CLL,label,input), at: list.count)
-        fields.insert((label,input), at: fields.count)
-        self.tableview.reloadData()
-    }
-    
-    func deleteBtn(cell:CustomTableViewCell){
-        var indexPath = tableview.indexPath(for: cell)
-        list.remove(at: (indexPath?.row)!)
-        self.tableview.reloadData()
-    }
-    
     func deleteImage(sender: UIButton){
         
         images.remove(at: sender.tag)
         sender.removeFromSuperview()
         tableview.reloadData()
     }
+    
+    
     
     func setupColumn(){
         if !request {

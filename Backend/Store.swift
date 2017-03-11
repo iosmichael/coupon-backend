@@ -1,5 +1,5 @@
 //
-//  Item.swift
+//  Store.swift
 //  Proxitude
 //
 //  Created by Michael Liu on 11/25/16.
@@ -9,18 +9,22 @@
 import UIKit
 import Firebase
 
-class Item: NSObject {
+class Store: NSObject {
     let storageURL = "gs://coupon-6f01b.appspot.com/"
-    let tagList = ["Homemade","Restuarant","Grocery","Shopping","Clothing"]
     var itemId:String!
     var name:String!
     var detail:String!
     var date: String!
     var thumbnail:String!
     var thumbnailImg: UIImage!
+    
+    var latitude:Float?
+    var longtitude:Float?
+    var website:String!
+    var category:String?
+    
     var imagesURL = [String]()
     
-    var fields = [(String,String)]()
     //below for post
     var tags = [String]()
     var images = [UIImage]()
@@ -29,12 +33,19 @@ class Item: NSObject {
     
     
     
-    func postData(name:String,detail:String,tags:[String],images:[UIImage],fields:[(String,String)]){
+    func postData(name:String,detail:String,tags:[String],images:[UIImage], latitude:String, longitude:String, website:String){
         self.name = name
         self.detail = detail
-        self.fields = fields
         self.tags = tags
+        self.website = website
         self.images = images
+        
+        if Float(latitude) != nil {
+            self.latitude = Float(latitude)
+        }
+        if Float(longitude) != nil {
+            self.longtitude = Float(longitude)
+        }
         writeItem()
     }
     
@@ -46,7 +57,6 @@ class Item: NSObject {
     func writeItem(){
         storageRef = FIRStorage.storage().reference(forURL: storageURL)
         let itemsNode = ref?.child("stores").childByAutoId()
-        let tagsNode = ref?.child("tags")
         
         let autoId = itemsNode?.key
     
@@ -86,16 +96,17 @@ class Item: NSObject {
         //#warning - Need dates! here!
         let currentDate: Date = Date()
         let dateString: String = currentDate.convertDateToString()
-        var posts = ["name":name!, "detail":detail!, "date":dateString] as [String : Any]
-        for (field, input) in fields{
-            posts[field] = input
-            print("\(field):\(input)")
+        let categoryStr: String = tags.joined(separator: ", ")
+        var posts:[String : Any]?
+        if latitude != nil && longtitude != nil {
+            posts = ["name":name!, "detail":detail!, "date":dateString, "category":categoryStr, "latitude":latitude!, "longtitude":longtitude!, "website":website] as [String : Any]
+        }else{
+            posts = ["name":name!, "detail":detail!, "date":dateString, "category":categoryStr, "website":website] as [String : Any]
         }
-        print("post data here: ------>\(posts)")
-        itemsNode?.updateChildValues(posts)
+        itemsNode?.updateChildValues(posts!)
         for tag in tags{
             //category links
-            tagsNode?.child(tag).child(autoId!).setValue(1)
+            itemsNode?.updateChildValues([tag:"1"])
         }
     }
     
@@ -103,10 +114,6 @@ class Item: NSObject {
     func deleteStore(storeId:String){
         let itemsNode = ref?.child("stores").child(storeId)
         itemsNode?.removeValue()
-        for tag in tagList {
-            //need query here!
-            ref?.child("tags").child(tag).child(storeId).removeValue()
-        }
         //delete all the coupons
         let couponNode = ref?.child("coupons").queryOrdered(byChild: "storeId").queryEqual(toValue: storeId)
         couponNode?.observe(.value, with: { (snapshot) in
@@ -123,6 +130,12 @@ extension Date{
     func convertDateToString()->String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.string(from: self)
+    }
+    
+    func convertDateToDueDateString()->String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         return dateFormatter.string(from: self)
     }
     

@@ -18,8 +18,8 @@ class Store: NSObject {
     var thumbnail:String!
     var thumbnailImg: UIImage!
     
-    var latitude:Float?
-    var longtitude:Float?
+    var latitude:Float32?
+    var longtitude:Float32?
     var website:String!
     var category:String?
     
@@ -40,11 +40,11 @@ class Store: NSObject {
         self.website = website
         self.images = images
         
-        if Float(latitude) != nil {
-            self.latitude = Float(latitude)
+        if Float32(latitude) != nil {
+            self.latitude = Float32(latitude)
         }
-        if Float(longitude) != nil {
-            self.longtitude = Float(longitude)
+        if Float32(longitude) != nil {
+            self.longtitude = Float32(longitude)
         }
         writeItem()
     }

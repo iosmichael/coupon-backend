@@ -26,14 +26,16 @@ class PostCouponViewController: UIViewController, UITableViewDataSource, UITable
     }
     var couponTitle: UITextField?
     var hours: UITextField?
+    var bannerImage: UITextField?
     var couponDetail: String = ""
     var images: [UIImage] = []
 
-    let detailIndex = 2
+    let detailIndex = 3
     let customListCellHeight:CGFloat = 44
     
     var list = [(cellType.LI, "Title", "e.g "),
                 (cellType.LI, "Hours", "e.g 30"),
+                (cellType.LI, "Banner Image", "e.g File Name"),
                 (cellType.LL, "Detail", "Required")]
     
     override func viewDidLoad() {
@@ -70,6 +72,8 @@ class PostCouponViewController: UIViewController, UITableViewDataSource, UITable
                 couponTitle = cell.rightInput
             }else if indexPath.row == 1{
                 hours = cell.rightInput
+            }else if indexPath.row == 2{
+                bannerImage = cell.rightInput
             }
             return cell
         }
@@ -120,9 +124,8 @@ class PostCouponViewController: UIViewController, UITableViewDataSource, UITable
         }
         
         let coupon = Coupon()
-        if images.count > 1 {
-            let bannerImage = images[0]
-            coupon.postData(name: (couponTitle?.text)!, detail: couponDetail, store: store!, bannerImage:bannerImage, hours:Double((self.hours?.text)!)!)
+        if !(self.bannerImage?.text?.isEmpty)! {
+            coupon.postData(name: (couponTitle?.text)!, detail: couponDetail, store: store!, bannerImagePath:(self.bannerImage?.text)!, hours:Double((self.hours?.text)!)!)
         }else{
             coupon.postData(name: (couponTitle?.text)!, detail: couponDetail, store: store!, hours:Double((self.hours?.text)!)!)
         }

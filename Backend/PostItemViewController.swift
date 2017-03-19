@@ -326,6 +326,23 @@ class PostItemViewController: UIViewController,UITableViewDelegate,UITableViewDa
     }
 
     
+    /**
+     -(IBAction) selectimage
+     {
+     UIImagePickerController *picker=[[UIImagePickerController alloc] init];
+     picker.delegate=self;
+     picker.sourceType=UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+     [self presentModalViewController:picker animated:YES];
+     [picker release];
+     }
+     -(void) imagePickerController:(UIImagePickerController *)UIPicker didFinishPickingMediaWithInfo:(NSDictionary *) info
+     {
+     [UIPicker dismissModalViewControllerAnimated:YES];
+     imageview.image=[info objectForKey:"UIImagePickerControllerOriginalImage"];
+     NSLog("Image Path=%@",imageview.image);
+     }
+     */
+    
 }
 
 class DetailController:UIViewController{

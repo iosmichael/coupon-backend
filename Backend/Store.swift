@@ -63,7 +63,7 @@ class Store: NSObject {
         let screenWidth = UIScreen.main.bounds.width
         let sqrThumbnailImage = UIImage.cropToBounds(image: images[0], width: Double(screenWidth), height: Double(screenWidth))
         let thumbnailImg = sqrThumbnailImage.resizeWith(width: 70)
-        let thumbnailData = UIImageJPEGRepresentation(thumbnailImg!, 0.2)
+        let thumbnailData = UIImageJPEGRepresentation(thumbnailImg!, 1.0)
         let thumbnailRef = storageRef?.child("images/\(autoId)-image-thumbnail.jpg")
         let thumbMetaData = FIRStorageMetadata()
         thumbMetaData.contentType = "image/jpg"
@@ -122,7 +122,6 @@ class Store: NSObject {
             }
         })
     }
-    
     
 }
 

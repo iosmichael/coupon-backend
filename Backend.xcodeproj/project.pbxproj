@@ -12,6 +12,7 @@
 		844D3E78CE94E19F69CEBB5F /* Pods_BackendUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D2EF154F125A5FD4FD66AA6 /* Pods_BackendUITests.framework */; };
 		9E3C18171E6F9D8B00006CF3 /* icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E3C18161E6F9D8B00006CF3 /* icons.xcassets */; };
 		9E3C18191E6FC34400006CF3 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3C18181E6FC34400006CF3 /* Manager.swift */; };
+		9E6BBE9E1E79A8F200A98367 /* PostMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6BBE9D1E79A8F200A98367 /* PostMessageViewController.swift */; };
 		9EC52D781E6E961200DD2664 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC52D771E6E961200DD2664 /* AppDelegate.swift */; };
 		9EC52D7F1E6E961200DD2664 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EC52D7D1E6E961200DD2664 /* Main.storyboard */; };
 		9EC52D811E6E961200DD2664 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EC52D801E6E961200DD2664 /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		96FDB0B025E371BA5D96B4C8 /* Pods_Backend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Backend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E3C18161E6F9D8B00006CF3 /* icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = icons.xcassets; sourceTree = "<group>"; };
 		9E3C18181E6FC34400006CF3 /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
+		9E6BBE9D1E79A8F200A98367 /* PostMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostMessageViewController.swift; sourceTree = "<group>"; };
 		9EC52D741E6E961200DD2664 /* Backend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Backend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EC52D771E6E961200DD2664 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EC52D7E1E6E961200DD2664 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				9EC52DC11E6F3E8D00DD2664 /* ItemTableViewController.swift */,
 				9EC52DC31E6F3E9600DD2664 /* StoreTableViewController.swift */,
 				9EC52DCA1E6F3EF400DD2664 /* PostCouponViewController.swift */,
+				9E6BBE9D1E79A8F200A98367 /* PostMessageViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -536,6 +539,7 @@
 				9EC52DB81E6F3C6300DD2664 /* SelectTagTableViewCell.swift in Sources */,
 				9EC52DCD1E6F892100DD2664 /* Coupon.swift in Sources */,
 				9EC52D781E6E961200DD2664 /* AppDelegate.swift in Sources */,
+				9E6BBE9E1E79A8F200A98367 /* PostMessageViewController.swift in Sources */,
 				9EC52DB61E6F3BE100DD2664 /* ChooseTagsTableViewController.swift in Sources */,
 				9EC52DCB1E6F3EF400DD2664 /* PostCouponViewController.swift in Sources */,
 				9EC52DC41E6F3E9600DD2664 /* StoreTableViewController.swift in Sources */,

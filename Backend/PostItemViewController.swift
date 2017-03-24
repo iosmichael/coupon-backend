@@ -43,7 +43,7 @@ class PostItemViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 (cellType.LL,"Categories","(Required)"),
                 (cellType.LI,"Latitude","e.g. 40.3211"),
                 (cellType.LI,"Longitude","e.g. 203.001"),
-                (cellType.LI,"Website","e.g. amazon.com")]
+                (cellType.LI,"Website","fullname!: https://www.google.com")]
     
     @IBOutlet weak var tableview: UITableView!
 

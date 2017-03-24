@@ -10,6 +10,8 @@
 		0D358BCBFBD35B970F8B0335 /* Pods_BackendTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF0D7A214DE3162F7E180073 /* Pods_BackendTests.framework */; };
 		5DD6067FEE1F1C34E7597E1B /* Pods_Backend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96FDB0B025E371BA5D96B4C8 /* Pods_Backend.framework */; };
 		844D3E78CE94E19F69CEBB5F /* Pods_BackendUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D2EF154F125A5FD4FD66AA6 /* Pods_BackendUITests.framework */; };
+		9E05B2681E836883003D239B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E05B2671E836883003D239B /* Message.swift */; };
+		9E05B26C1E8375DC003D239B /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E05B26B1E8375DC003D239B /* MessageTableViewController.swift */; };
 		9E3C18171E6F9D8B00006CF3 /* icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E3C18161E6F9D8B00006CF3 /* icons.xcassets */; };
 		9E3C18191E6FC34400006CF3 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3C18181E6FC34400006CF3 /* Manager.swift */; };
 		9E6BBE9E1E79A8F200A98367 /* PostMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6BBE9D1E79A8F200A98367 /* PostMessageViewController.swift */; };
@@ -62,6 +64,8 @@
 		4DC33566BFB4B5D91B260BB5 /* Pods-BackendUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackendUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BackendUITests/Pods-BackendUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8D2EF154F125A5FD4FD66AA6 /* Pods_BackendUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BackendUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96FDB0B025E371BA5D96B4C8 /* Pods_Backend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Backend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E05B2671E836883003D239B /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		9E05B26B1E8375DC003D239B /* MessageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
 		9E3C18161E6F9D8B00006CF3 /* icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = icons.xcassets; sourceTree = "<group>"; };
 		9E3C18181E6FC34400006CF3 /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 		9E6BBE9D1E79A8F200A98367 /* PostMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostMessageViewController.swift; sourceTree = "<group>"; };
@@ -219,6 +223,7 @@
 				9EC52DCC1E6F892100DD2664 /* Coupon.swift */,
 				9E3C18181E6FC34400006CF3 /* Manager.swift */,
 				9EF8F2D41E739709001F8565 /* Category.swift */,
+				9E05B2671E836883003D239B /* Message.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -232,6 +237,7 @@
 				9EC52DC31E6F3E9600DD2664 /* StoreTableViewController.swift */,
 				9EC52DCA1E6F3EF400DD2664 /* PostCouponViewController.swift */,
 				9E6BBE9D1E79A8F200A98367 /* PostMessageViewController.swift */,
+				9E05B26B1E8375DC003D239B /* MessageTableViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -538,6 +544,7 @@
 				9EC52DC21E6F3E8D00DD2664 /* ItemTableViewController.swift in Sources */,
 				9EC52DB81E6F3C6300DD2664 /* SelectTagTableViewCell.swift in Sources */,
 				9EC52DCD1E6F892100DD2664 /* Coupon.swift in Sources */,
+				9E05B2681E836883003D239B /* Message.swift in Sources */,
 				9EC52D781E6E961200DD2664 /* AppDelegate.swift in Sources */,
 				9E6BBE9E1E79A8F200A98367 /* PostMessageViewController.swift in Sources */,
 				9EC52DB61E6F3BE100DD2664 /* ChooseTagsTableViewController.swift in Sources */,
@@ -550,6 +557,7 @@
 				9EF8F2D51E739709001F8565 /* Category.swift in Sources */,
 				9E3C18191E6FC34400006CF3 /* Manager.swift in Sources */,
 				9EC52DAE1E6E98D900DD2664 /* Store.swift in Sources */,
+				9E05B26C1E8375DC003D239B /* MessageTableViewController.swift in Sources */,
 				9EC52DB21E6E99B600DD2664 /* ImagesTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -46,11 +46,11 @@ class Coupon: NSObject {
         let dateString: String = currentDate.convertDateToString()
         let dueString: String = dueDate.convertDateToDueDateString()
         let posts = ["name":name!, "detail":detail!, "date":dateString,"due": dueString, "storeId":(store?.itemId)!, "storeName":(store?.name)!, "storeThumbnail":(store?.thumbnail)!, "storeDetail": (store?.detail)!, "images": (store?.imagesURL)!, "storeLatitude":store?.latitude, "storeLongtitude": store?.longtitude, "category":store?.category, "website":store?.website] as [String : Any]
+        childNode?.updateChildValues(posts)
         if self.bannerImagePath != nil {
             childNode?.child("bannerImage").setValue(self.bannerImagePath!)
             childNode?.child("isBanner").setValue(1)
         }
-        childNode?.updateChildValues(posts)
     }
     
     
